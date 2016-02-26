@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+.rounded {
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+}
+
+.styled-select {
+  /*background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 95% 0;*/
+  height: 30px;
+  width: 60px;
+  overflow: hidden;
+}
+
+.styled-select select {
+  height: 30px;
+  width: 60px;
+  background: transparent;
+  border: none;
+  font-size: 12px;
+  padding: 3px; /* If you add too much padding here, the options won't show in IE */
+}
+
+.styled-select.slate select {
+  /*background-color: #ddd;*/
+  height: 30px;
+  width: 60px;
+  border: 1px solid #ccc;
+  font-size: 12px;
+}
