@@ -26,10 +26,5 @@
   "license" : [
     "BSD",
     "MIT"
-  ],
-  "homepage": "https://github.com/owenmead/Pikaday",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/owenmead/Pikaday.git"
-  }
+  ]
 }
