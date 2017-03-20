@@ -440,7 +440,7 @@
         return to_return;
     },
 
-    renderTime = function(hh, mm, ss, opts)
+    renderTime = function(hh, mm, ss, SSS, opts)
     {
         var to_return = '<table cellpadding="0" cellspacing="0" class="pika-time"><tbody><tr>' +
             renderTimePicker(24, hh, 'pika-select-hour', function(i) {
@@ -464,6 +464,12 @@
         if (opts.showSeconds) {
             to_return += '<td>:</td>' +
                 renderTimePicker(60, ss, 'pika-select-second', function(i) { if (i < 10) return "0" + i; return i }, opts.incrementSecondBy);
+            to_return += '<td>.</td>' +
+                renderTimePicker(1000, SSS, 'pika-select-millisecond', function(i) { 
+                  if (i < 10) return "00" + i;
+                  if (i < 100) return "0" + i;
+                  return i;
+                }, opts.incrementSecondBy);
         }
         return to_return + '</tr></tbody></table>';
     },
@@ -502,6 +508,7 @@
                         newDate.setMinutes(self._d.getMinutes());
                         if (opts.showSeconds) {
                             newDate.setSeconds(self._d.getSeconds());
+                            newDate.setMilliseconds(self._d.getMilliseconds());
                         }
                     }
                     self.setDate(newDate);
@@ -557,6 +564,9 @@
             }
             else if (hasClass(target, 'pika-select-second')) {
                 self.setTime(null, null, target.value);
+            }
+            else if (hasClass(target, 'pika-select-millisecond')) {
+                self.setTime(null, null, null, target.value);
             }
         };
 
@@ -805,7 +815,7 @@
          * set time components
          * Currently defaulting to setting date to today if not set
          */
-        setTime: function(hours, minutes, seconds) {
+        setTime: function(hours, minutes, seconds, milliseconds) {
             if (!this._d) {
                 this._d = new Date();
                 this._d.setHours(0,0,0,0);
@@ -818,6 +828,9 @@
             }
             if (seconds) {
                 this._d.setSeconds(seconds);
+            }
+            if (milliseconds) {
+                this._d.setMilliseconds(milliseconds);
             }
             this.setDate(this._d);
         },
@@ -857,6 +870,7 @@
 
             if (this._o.showTime && !this._o.showSeconds) {
                 this._d.setSeconds(0);
+                this._d.setMilliseconds(0);
             } else if (!this._o.showTime) {
                 setToStartOfDay(this._d);
             }
@@ -899,7 +913,8 @@
                     year: date.getFullYear(),
                     hour: date.getHours(),
                     minute: date.getMinutes(),
-                    second: date.getSeconds()
+                    second: date.getSeconds(),
+                    millisecond: date.getMilliseconds()
                 }];
                 if (this._o.mainCalendar === 'right') {
                     this.calendars[0].month += 1 - this._o.numberOfMonths;
@@ -1028,9 +1043,10 @@
             if (opts.showTime) {
                 html += '<div class="pika-time-container">' +
                         renderTime(
-                            this._d ? this._d.getHours() : 0,
-                            this._d ? this._d.getMinutes() : 0,
-                            this._d ? this._d.getSeconds() : 0,
+                            this._d ? this._d.getHours()        : 0,
+                            this._d ? this._d.getMinutes()      : 0,
+                            this._d ? this._d.getSeconds()      : 0,
+                            this._d ? this._d.getMilliseconds() : 0,
                             opts)
                     + '</div>';
             }
