@@ -465,7 +465,7 @@
             to_return += '<td>:</td>' +
                 renderTimePicker(60, ss, 'pika-select-second', function(i) { if (i < 10) return "0" + i; return i }, opts.incrementSecondBy);
             to_return += '<td>.</td>' +
-                renderTimePicker(1000, SSS, 'pika-select-millisecond', function(i) { 
+                renderTimePicker(1000, SSS, 'pika-select-millisecond', function(i) {
                   if (i < 10) return "00" + i;
                   if (i < 100) return "0" + i;
                   return i;
@@ -1223,7 +1223,8 @@
                 this._v = true;
                 this.draw();
                 if (this._o.bound) {
-                    addEvent(document, 'click', this._onClick);
+                    // This causes an issue with Polymer 2.0
+                    // addEvent(document, 'click', this._onClick);
                     this.adjustPosition();
                 }
                 if (typeof this._o.onOpen === 'function') {
@@ -1236,9 +1237,10 @@
         {
             var v = this._v;
             if (v !== false) {
-                if (this._o.bound) {
-                    removeEvent(document, 'click', this._onClick);
-                }
+                // This causes an issue with Polymer 2.0
+                // if (this._o.bound) {
+                //     removeEvent(document, 'click', this._onClick);
+                // }
                 this.el.style.position = 'static'; // reset
                 this.el.style.left = 'auto';
                 this.el.style.top = 'auto';

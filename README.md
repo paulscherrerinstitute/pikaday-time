@@ -13,7 +13,7 @@ incrementSecondBy: 1
 autoClose: true
 ```
 
-### Time support added to [dbushell/Pikaday][david Pika]
+### Time support, including milliseconds, added to [dbushell/Pikaday][david Pika]
 
 This fork allows the user to specify the time along with their date. Done so by adding a couple select inputs to manipulate the date Pikaday is generating.
 * Used to set time aspects of date.
@@ -23,6 +23,7 @@ This fork allows the user to specify the time along with their date. Done so by 
 
 ## Authors
 
+* Christof Zellweger
 * Owen Mead-Robins [http://www.owenmead.com/][owenmead]
 
 [david Pika]:   https://github.com/dbushell/Pikaday                              "Pikaday"
