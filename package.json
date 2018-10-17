@@ -1,7 +1,7 @@
 {
   "name": "pikaday-time",
-  "version": "1.4.0",
-  "description": "Time support added to pikaday",
+  "version": "2.0.0",
+  "description": "Pikaday, with time, as ES6 module",
   "keywords": [
     "datepicker",
     "calendar",
@@ -9,24 +9,13 @@
     "time",
     "datetime"
   ],
-  "homepage": "http://dbushell.github.io/Pikaday/",
-  "bugs": "https://github.com/owenmead/Pikaday/issues",
-  "licenses": [
-    {
-      "type": "BSD",
-      "url": "http://opensource.org/licenses/BSD-3-Clause"
-    },
-    {
-      "type": "MIT",
-      "url": "http://opensource.org/licenses/MIT"
-    }
-  ],
+  "license": "(MIT OR BSD-3-Clause)",
   "main": "pikaday.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/owenmead/Pikaday.git"
+    "url": "https://github.com/paulscherrerinstitute/pikaday-time.git"
   },
-  "optionalDependencies": {
+  "dependencies": {
     "moment": "2.x"
   },
   "devDependencies": {

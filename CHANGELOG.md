@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.0 - 2018-10-16
+
+- Convert to ES6 module
+- Drop support for ComponentJS and Bower
+- Make *moment* a non-optional dependency
+
 ## 1.4.0 - 2015-10-30
 
 - Fix touch device support, see #374, #276, #301, #303, #324, #366 and #386
