@@ -10,7 +10,7 @@
  * https://github.com/dbushell/Pikaday
  */
 
-import moment from 'moment';
+import moment from 'moment/src/moment.js';
 
 export { Pikaday };
 export default Pikaday;
